@@ -14,9 +14,9 @@ const app = express();
 const fs = require("fs");
 const https = require("https");
 const sslOptions = {
-  key: fs.readFileSync("certs/server_key.pem"),
-  certs: fs.readFileSync("certs/server_crt.pem"),
-  ca: fs.readFileSync("certs/ca_crt.pem")
+  "key": fs.readFileSync("certs/server_key.pem"),
+  "cert": fs.readFileSync("certs/server_crt.pem"),
+  "ca": fs.readFileSync("certs/ca_crt.pem")
 };
 
 //Load module to execute tokenTool
