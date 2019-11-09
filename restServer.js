@@ -20,14 +20,18 @@ const sslOptions = {
 };
 
 //Load module to execute tokenTool
-const execSync = require("child_process").execSync;
+const func = require("./function.js");
 
 //Load middleware function(bodyParser)
 app.use(bodyParser.json());
 
 //GET request processing
 app.get("/api/token", function(req, res){
-  res.send("Yo");
+
+  const response = {
+    "token": func.callBoxTokener()
+  }
+  res.send(response);
 });
 
 //https server execution part
