@@ -19,6 +19,9 @@ const sslOptions = {
   "ca": fs.readFileSync("certs/ca_crt.pem")
 };
 
+//API server port
+const port = 3000;
+
 //Load module to execute tokenTool
 const func = require("./function.js");
 
@@ -35,4 +38,9 @@ app.get("/api/token", function(req, res){
 });
 
 //https server execution part
-https.createServer(sslOptions,app).listen(3000);
+https.createServer(sslOptions,app).listen(port,function(){
+
+  console.log("REST server running on port "+port+".");
+  console.log("Let's try: curl https://localhost:"+port+"/api/token");
+
+});
